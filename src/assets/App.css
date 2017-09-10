@@ -1,0 +1,159 @@
+@font-face {
+  font-family: loginFont;
+  src: url(JennaSue.ttf)
+}
+
+@font-face {
+  font-family: formFont;
+  src: url(CaviarDreams.ttf)
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 5s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.navbar{
+    background: #B8C4BB;
+}
+
+#logo {
+  height: 10vh;
+  margin: 2em 0 2em 2em;
+}
+
+.inputField {
+  float: right;
+  margin: 6vh 2em 0 0;
+
+}
+
+.loginTitle {
+  text-align: center;
+
+}
+
+.login{
+  display: inline;
+  margin-right: 2em;
+
+}
+.createAccount {
+  float: right;
+  margin: 12vh -10.5em 0 0;
+}
+
+/*.username {
+  height: 2em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 5px;
+}
+
+.password {
+  margin-left: 2em;
+  height: 2em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 5px;
+}*/
+
+.background {
+  width: 100vw;
+  height: 85vh;
+}
+
+.registrationForm {
+  border-radius: 5px;
+  background-color: #E8F7EE;
+  padding: 20px;
+  width: 40%;
+  margin: 5em auto;
+  text-align: left;
+}
+
+.registration {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.submitButton {
+  width: 100%;
+  background-color: #7F9C96;
+  color: white;
+  padding: 10px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-family: loginFont;
+  font-size: 2em;
+}
+
+.submitButton:hover {
+  background-color: #B8C4BB;
+}
+
+.submitButton:focus {
+  outline: none;
+}
+
+.toggleButton:hover {
+  background-color: #B8C4BB;
+}
+.toggleButton:focus {
+  outline: none;
+}
+
+  .toggleButton {
+    width: 20%;
+    background-color: #7F9C96;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    }
+
+
+.welcomeTitle {
+  text-align: center;
+}
+
+#login {
+  font-family: loginFont;
+  font-size: 5em;
+}
+
+.formFont {
+  font-family: formFont;
+  font-size: 1.2em;
+}
