@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import logo from './assets/washparkacug.png'
-import './assets/App.css'
+import logo from '../assets/wplogo.png'
+import '../assets/App.css'
 import { Link } from 'react-router-dom';
 
 

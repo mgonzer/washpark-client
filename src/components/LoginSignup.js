@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import logo from './assets/washparkacug.png'
-import './assets/App.css'
+import '../assets/App.css'
 import Login from './Login'
 import Register from './Register'
 
@@ -45,7 +44,7 @@ class LoginSignup extends Component {
         <Register />
       )
     }
-    
+
     return (
       <div className="loginTitle">
         { loginActive }
