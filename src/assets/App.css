@@ -14,17 +14,25 @@ body {
   font-family: sans-serif;
 }
 
+main {
+  margin: 0;
+  padding: 0;
+}
+
 .App {
   text-align: center;
 }
 
 .navbar{
-    background: #796465;
+  margin: 0;
+  padding: 0;
+  background: #e3e0cf;
 }
+
 
 #logo {
   height: 10vh;
-  margin: 2em 0 2em 2em;
+  margin: 1em 0 1em 2em;
 }
 
 .inputField {
@@ -72,7 +80,7 @@ body {
 
 .registrationForm {
   border-radius: 5px;
-  background-color: #90BEAF;
+  background-color: #c5d5cb;
   padding: 20px;
   width: 40%;
   margin: 5em auto;
@@ -91,7 +99,7 @@ body {
 
 .submitButton {
   width: 100%;
-  background-color: #435360;
+  background-color: #9fa8a3;
   color: white;
   padding: 10px;
   margin: 8px 0;
@@ -131,6 +139,9 @@ body {
 
 .welcomeTitle {
   text-align: center;
+  font-family: loginFont;
+  font-size: 5em;
+  font-weight: normal;
 }
 
 #login {
@@ -142,4 +153,271 @@ body {
 .formFont {
   font-family: formFont;
   font-size: 1.2em;
+}
+
+.adminPage {
+  display: inline-block;
+}
+
+.adminIcon {
+  height: 12vh;
+  /*width: 8vw;*/
+}
+
+.gridContainer {
+  text-align: center;
+  margin-top: 10vh;
+  display: grid;
+  grid-template-columns: 20% 20% 20%;
+  justify-content: space-around;
+}
+
+.gridItem:hover {
+  cursor: pointer;
+}
+
+.gridItem {
+  /*border-style: solid;
+  border-width: thin;
+  border-color: #9fa8a3;
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;*/
+  padding: 2vh 0;
+  margin-top: 10%;
+  margin-top: -25%;
+  margin-bottom: 2vh;
+  /*background-color: white;*/
+}
+
+.dashboard {
+  background-color: #c5d5cb;
+  margin: -0 5% 0 5%;
+  border-radius: 20px;
+
+}
+.welcomeTitleDashboard {
+  margin-top: 1%;
+  text-align: center;
+  font-family: loginFont;
+  font-size: 5em;
+  font-weight: normal;
+  background-color: #9fa8a3;
+  padding: 2% 0;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+.gridResources {
+  text-align: center;
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20%;
+  justify-content: space-around;
+}
+
+.patientList {
+  /*text-align: center;*/
+  padding-top: 2%;
+  margin: 0 auto;
+  list-style: none;
+  height: 80vh;
+  width: 40vw;
+  border-style: solid;
+  border-width: 30px;
+  border-color: #c5d5cb;
+  border-radius: 5%;
+}
+
+li {
+  padding: 1% 0;
+}
+
+.individualPatient:link, .individualPatient:visited, .individualPatient:active {
+  text-decoration: none;
+  font-family: formFont;
+  color: black;
+}
+.individualPatient:hover {
+  color: #9fa8a3;
+}
+
+.singlePatientView {
+  margin-left: 2%;
+  font-family: formFont;
+
+}
+
+.noteList {
+  margin-top: -1%;
+  list-style: none;
+}
+
+.noteInput {
+  width: 25%;
+  height: 5%;
+}
+
+.resourceList {
+  list-style: none;
+  font-family: formFont;
+  font-size: 1.5em;
+}
+
+.resourceList:hover {
+  color: #9fa8a3;
+  cursor: pointer;
+}
+
+
+
+.embeded {
+    text-align: center;
+}
+
+/*.clickedOn, .clickedOn:acitve, .clickedOn:link, .clickedOn:visited, .clickedOn:focus {
+  color: #E85A4F !important;
+  text-decoration: none !important;
+}*/
+
+a:active, a:link, a:visited {
+  color: #E85A4F !important;
+  text-decoration: none !important;
+  font-family: formFont;
+}
+
+.resourceStyle{
+  font-family: formFont;
+  /*text-align: center;*/
+  font-size: 1.5em;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  justify-content: space-between;
+  margin: 0 20%;
+  margin-top: -5%;
+
+
+}
+
+.resourcePage {
+  margin: 10px 5%;
+  background-color: #c5d5cb;
+  overflow: auto;
+  border-radius: 10px;
+}
+
+.dashboardDiagnosis {
+  background-color: #c5d5cb;
+  margin: 2% 5% 0 5%;
+  border-radius: 10px;
+  padding: 1px 0;
+}
+
+.diagnosisGrid {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.diagnosisTreatment {
+  background-color: #e3e0cf;
+  margin: 2% 5% 5% 5%;
+  border-radius: 10px;
+  height: 350px;
+  overflow: scroll;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #A9A9A9;
+
+}
+
+p {
+  font-family: formFont;
+}
+
+hr {
+  margin: 1% 5%;
+  border-color: #9fa8a3;
+}
+
+.diagnosisHeading {
+  text-align: center;
+  font-family: formFont;
+  font-size: 1.6em;
+  margin-bottom: 0;
+
+}
+.diagnosisP {
+  text-align: center;
+  padding: 0 4%;
+}
+
+.noteList {
+  margin-left: 5%;
+  font-family: formFont;
+  overflow: scroll;
+}
+
+.addResourceForm {
+  border-radius: 5px;
+  background-color: #c5d5cb;
+  padding: 20px;
+  width: 40%;
+  text-align: left;
+}
+
+.addResourceButton {
+  width: 100%;
+  background-color: #9fa8a3;
+  color: white;
+  padding: 10px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-family: loginFont;
+  font-size: 2em;
+}
+
+.toggleAddResourceButton {
+  width: 20%;
+  background-color: #9fa8a3;
+  color: white;
+  padding: 10px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-family: loginFont;
+  font-size: 2em;
+}
+
+.resourceListFiltered {
+
+}
+
+.pinIcon {
+  height: 6vh;
+  float: right;
+  margin-right: 2%;
+  margin-top: 2%;
+}
+/*
+.tooltip {
+  position: relative;
+  display: inline-block;
+}*/
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px 2px;
+  position: absolute;
+  z-index: 1;
+  float: right;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  float: right;
 }
