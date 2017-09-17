@@ -28,7 +28,7 @@ class ResourceListPage extends Component {
 
   renderResources(){
     return this.props.data.resources.resources.map(resource =>
-      <Link to={`/resources/${resource.id}`}><li className="resourceList">{resource.title}</li></Link>
+      <Link to={`/Adminpage/resources/${resource.id}`}><li className="resourceList">{resource.title}</li></Link>
     )
   }
 

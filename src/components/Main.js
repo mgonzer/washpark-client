@@ -11,13 +11,14 @@ import ResourcePage from './admin/ResourcePage';
 import ResourcePagePatient from './user/ResourcePagePatient';
 import ResourceListPagePatient from './user/ResourceListPagePatient'
 import SingleResource from './user/SingleResource';
+import SingleResourceAdmin from './admin/SingleResourceAdmin'
 import PatientPage from './admin/PatientPage';
 import SinglePatient from './admin/SinglePatient'
 import PatientResources from './user/PatientResources';
 import ResourceListPage from './admin/ResourceListPage';
 import Schedule from './user/Schedule';
 import Kindara from './user/Kindara'
-import { login, signup, adminLogin, getPatients, getOnePatient, loadPatientData, addNote } from '../actions/userActions';
+import { login, signup, adminLogin, getPatients, getOnePatient, loadPatientData, addNote, pinArticle, pinArticlePractitioner } from '../actions/userActions';
 import { getHerbs } from '../actions/herbAction';
 import { getResources, getOneResource, getSomeResources, addResource } from '../actions/resourceAction';
 
@@ -46,7 +47,8 @@ componentDidMount(){
           <Route exact path='/Adminpage/patients' render={() => <PatientPage {...this.props} />} />
           <Route path= '/Adminpage/patients/:id' render={() => <SinglePatient {...this.props} />} />
           <Route exact path='/Adminpage/resources' render={() => <ResourcePage {...this.props} />} />
-          <Route path='/Adminpage/resources/:category' render={() => <ResourceListPage {...this.props} />} />
+          <Route exact path='/Adminpage/resources/:id' render={() => <SingleResourceAdmin {...this.props} />} />
+          <Route path='/Adminpage/resources/category/:category' render={() => <ResourceListPage {...this.props} />} />
 
       </Switch>
       </main>
@@ -97,6 +99,12 @@ const mapDispatchToProps = (dispatch) => {
     },
     onAddNote: (id, note) => {
       dispatch(addNote(id, note))
+    },
+    onPinArticle: (article) => {
+      dispatch(pinArticle(article))
+    },
+    onPinArticlePractitioner: (id, article) => {
+      dispatch(pinArticlePractitioner(id, article))
     }
   }
 }

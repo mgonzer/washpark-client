@@ -3,9 +3,9 @@ import { withRouter } from 'react-router-dom';
 import Moment from 'react-moment'
 
 class TreatmentPage extends Component {
-  constructor(props){
-    super(props)
-  }
+  // constructor(props){
+  //   super(props)
+  // }
 
   componentWillMount(){
     this.props.onLoadPatientData()
@@ -27,9 +27,9 @@ class TreatmentPage extends Component {
           </div>
           <div className="diagnosisTreatment">
             <h4 className="diagnosisHeading">Notes:</h4>
-            <ul>
+            <ul className="noteList">
               { user && user.notes.map(n=>
-                <li className="noteList"><Moment format="MM/DD/YYYY">{n.created_at}</Moment> : {n.body}</li>
+                <li key={n.id} ><Moment format="MM/DD/YYYY">{n.created_at}</Moment> : {n.body}</li>
               ) }
             </ul>
           </div>

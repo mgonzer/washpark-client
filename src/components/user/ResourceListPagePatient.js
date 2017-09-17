@@ -27,11 +27,6 @@ class ResourceListPage extends Component {
     this.props.onGetSomeResources(category1)
   }
 
-  renderResources(){
-    return this.props.data.resources.resources.map(resource =>
-      <Link to={`/resources/${resource.id}`}><li className="resourceList">{resource.title}</li></Link>
-    )
-  }
 
   handleInput(event){
     this.setState({
@@ -56,11 +51,16 @@ class ResourceListPage extends Component {
     })
   }
 
+  renderResources(){
+    return this.props.data.resources.resources.map(resource =>
+      <Link to={`/resources/${resource.id}`}><li key={resource.id} className="resourceList">{resource.title}</li></Link>
+    )
+  }
 
   render(){
     return(
-      <div>
-        
+      <div className="dashboard">
+
         <ul className="resourceListFiltered">
           { this.renderResources() }
         </ul>

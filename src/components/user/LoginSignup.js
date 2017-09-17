@@ -36,6 +36,7 @@ class LoginSignup extends Component {
         {username,
           password}
         )
+      
     this.props.history.push('/Dashboard')
   }
 

@@ -57,7 +57,7 @@ export function adminLogin(user){
   }
 }
 
-export function getPatients(id){
+export function getPatients(){
   const request = axios({
     method: 'get',
     url: `http://localhost:3000/admin/patients/`,
@@ -110,6 +110,40 @@ export function addNote(id, note){
   })
   return {
     type: "ADD_NOTE",
+    payload: request
+  }
+}
+
+export function pinArticle(article){
+  const request = axios({
+    method: 'post',
+    url: `http://localhost:3000/patients/${localStorage.id}/resources`,
+    headers: {'Authorization': `Bearer ${localStorage.token}`},
+    data: article
+  }).then(result=>{
+    return result.data
+  })
+  return {
+    type: "PIN_ARTICLE",
+    payload: request
+  }
+}
+
+export function pinArticlePractitioner(id, article){
+  const request = axios({
+    method: 'post',
+    url: `http://localhost:3000/admin/patients/${id}/resources`,
+    headers: {'Authorization': `Bearer ${localStorage.token}`},
+    data: article
+  }).then(result=>axios({
+    method: 'get',
+    url: `http://localhost:3000/admin/patients/${id}`,
+    headers: {'Authorization': `Bearer ${localStorage.token}`},
+  })).then(result=>{
+    return result
+  })
+  return {
+    type: "PIN_ARTICLE_PRACTITIONER",
     payload: request
   }
 }

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import pin from '../../assets/pin.png'
 
 
-class SingleResource extends Component{
+class SingleResourceAdmin extends Component{
   constructor(props){
     super(props)
 
@@ -21,13 +21,8 @@ class SingleResource extends Component{
 
   render(){
     let resource = this.props.data.resources.resources[0]
-    let userResources = this.props.data.user.user.resources
-
     return(
       <div className="resourcePage">
-        <div className="tooltip"><img alt="icon" onClick={this.addArticle} className="pinIcon"  src={pin} />
-          <span className="tooltiptext">Click to Pin Article</span>        
-        </div>
         <h1 className="welcomeTitle">{resource && resource.title}</h1>
         <div className="resourceStyle">
   </div>
@@ -43,4 +38,6 @@ class SingleResource extends Component{
 
 
 
-export default SingleResource
+export default SingleResourceAdmin
+
+// <div className="tooltip"><img alt="icon" onClick={this.addArticle} className="pinIcon"  src={pin} /><span className="tooltiptext">Click to Pin Article</span></div>

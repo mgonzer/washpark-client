@@ -48,6 +48,17 @@ const userReducer = (
       state.user.data.notes = state.user.data.notes.concat(action.payload)
       return state
     }
+    case "PIN_ARTICLE": {
+      const state = {...initialState}
+      state.user = action.payload
+      return state
+    }
+    case "PIN_ARTICLE_PRACTITIONER": {
+      const state = {...initialState}
+      state.user = action.payload
+      return state
+    }
+
     default:
       return initialState
   }

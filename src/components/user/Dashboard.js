@@ -7,12 +7,13 @@ import kindara from '../../assets/kindara.png'
 import allResources from '../../assets/allresources.png'
 
 class Dashboard extends Component {
-  constructor(props){
-    super(props)
-  }
+  // constructor(props){
+  //   super(props)
+  // }
 
 componentWillMount(){
   this.props.onLoadPatientData()
+
 }
 
   render(){
@@ -21,14 +22,14 @@ componentWillMount(){
       <div className="dashboard">
         <h1 className="welcomeTitleDashboard">Welcome {user.first_name}</h1>
           <div className="gridContainer">
-            <Link className="clickedOn" to='/Treatment'><div className="gridItem"><img className="adminIcon" src={diagnosis}></img><h3>Treatment Plan</h3></div></Link>
-            <Link className="clickedOn" to='/Pinned'><div className="gridItem"><img className="adminIcon" src={resource}></img><h3>Pinned Resources</h3></div></Link>
-            <Link className="clickedOn" to='/Resources'><div className="gridItem"><img className="adminIcon" src={allResources}></img><h3>All Resources</h3></div></Link>
+            <Link className="clickedOn" to='/Treatment'><div className="gridItem"><img alt="icon" className="adminIcon" src={diagnosis}></img><h3>Treatment Plan</h3></div></Link>
+            <Link className="clickedOn" to='/Pinned'><div className="gridItem"><img alt="icon" className="adminIcon" src={resource}></img><h3>Pinned Resources</h3></div></Link>
+            <Link className="clickedOn" to='/Resources'><div className="gridItem"><img alt="icon" className="adminIcon" src={allResources}></img><h3>All Resources</h3></div></Link>
 
           </div>
           <div className="gridContainer">
-            <Link className="clickedOn" to='/Schedule'><div className="gridItem"><img className="adminIcon" src={schedule}></img><h3>Schedule</h3></div></Link>
-            <Link className="clickedOn" to='/Kindara'><div className="gridItem"><img className="adminIcon" src={kindara}></img><h3>Kindara</h3></div></Link>
+            <Link className="clickedOn" to='/Schedule'><div className="gridItem"><img alt="icon" className="adminIcon" src={schedule}></img><h3>Schedule</h3></div></Link>
+            <Link className="clickedOn" to='/Kindara'><div className="gridItem"><img alt="icon" className="adminIcon" src={kindara}></img><h3>Kindara</h3></div></Link>
           </div>
       </div>
     )
@@ -37,6 +38,8 @@ componentWillMount(){
 
 
 export default withRouter(Dashboard);
+
+// this.props.user.user.response.data.error.message
 
 // <Link to='/Dashboard/Resources'><div onClick={this.props.onGetResources} className="gridItem"><img className="adminIcon" src={resources}></img><h2>Resources</h2></div></Link>
 // <Link to='/Dashboard/Notes' ><div onClick={this.props.onGetHerbs} className="gridItem"><img className="adminIcon" src={herbs}></img><h2>Herbs</h2></div></Link>
