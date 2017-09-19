@@ -1,13 +1,13 @@
 import axios from 'axios'
 
 export function login(user){
-  const request = axios.post('http://localhost:3000/auth/login', user)
+  const request = axios.post('https://lunaportalserver.herokuapp.com/auth/login', user)
     .then(result=>{
       localStorage.token = result.data.token;
       localStorage.id = result.data.id
     }).then(result=>axios({
       method: 'get',
-      url: `http://localhost:3000/patients/${localStorage.id}`,
+      url: `https://lunaportalserver.herokuapp.com/patients/${localStorage.id}`,
       headers: {'Authorization': `Bearer ${localStorage.token}`}
     }))
   .then(result=>{
@@ -20,13 +20,13 @@ export function login(user){
 }
 
 export function signup(user){
-  const request = axios.post('http://localhost:3000/auth/register', user)
+  const request = axios.post('https://lunaportalserver.herokuapp.com/auth/register', user)
     .then(result=>{
       localStorage.token = result.data.token;
       localStorage.id = result.data.id
     }).then(result=>axios({
       method: 'get',
-      url: `http://localhost:3000/patients/${localStorage.id}`,
+      url: `https://lunaportalserver.herokuapp.com/patients/${localStorage.id}`,
       headers: {'Authorization': `Bearer ${localStorage.token}`}
     }))
   .then(result=>{
@@ -39,13 +39,13 @@ export function signup(user){
 }
 
 export function adminLogin(user){
-  const request = axios.post('http://localhost:3000/auth/admin', user)
+  const request = axios.post('https://lunaportalserver.herokuapp.com/auth/admin', user)
     .then(result=>{
       localStorage.token = result.data.token;
       localStorage.id = result.data.id
     }).then(result=>axios({
       method: 'get',
-      url: `http://localhost:3000/admin/patients/`,
+      url: `https://lunaportalserver.herokuapp.com/admin/patients/`,
       headers: {'Authorization': `Bearer ${localStorage.token}`}
     }))
   .then(result=>{
@@ -60,7 +60,7 @@ export function adminLogin(user){
 export function getPatients(){
   const request = axios({
     method: 'get',
-    url: `http://localhost:3000/admin/patients/`,
+    url: `https://lunaportalserver.herokuapp.com/admin/patients/`,
     headers: {'Authorization': `Bearer ${localStorage.token}`}
   }).then(result => {
     return result.data
@@ -74,7 +74,7 @@ export function getPatients(){
 export function getOnePatient(id){
   const request = axios({
     method: 'get',
-    url: `http://localhost:3000/admin/patients/${id}`,
+    url: `https://lunaportalserver.herokuapp.com/admin/patients/${id}`,
     headers: {'Authorization': `Bearer ${localStorage.token}`}
   }).then(result => {
     return result
@@ -88,7 +88,7 @@ export function getOnePatient(id){
 export function loadPatientData(){
   const request = axios({
     method: 'get',
-    url: `http://localhost:3000/patients/${localStorage.id}`,
+    url: `https://lunaportalserver.herokuapp.com/patients/${localStorage.id}`,
     headers: {'Authorization': `Bearer ${localStorage.token}`}
   }).then(result=>{
     return result.data
@@ -102,7 +102,7 @@ export function loadPatientData(){
 export function addNote(id, note){
   const request = axios({
     method: 'post',
-    url: `http://localhost:3000/admin/patients/${id}/notes`,
+    url: `https://lunaportalserver.herokuapp.com/admin/patients/${id}/notes`,
     headers: {'Authorization': `Bearer ${localStorage.token}`},
     data: note
   }).then(result => {
@@ -117,7 +117,7 @@ export function addNote(id, note){
 export function pinArticle(article){
   const request = axios({
     method: 'post',
-    url: `http://localhost:3000/patients/${localStorage.id}/resources`,
+    url: `https://lunaportalserver.herokuapp.com/patients/${localStorage.id}/resources`,
     headers: {'Authorization': `Bearer ${localStorage.token}`},
     data: article
   }).then(result=>{
@@ -132,18 +132,74 @@ export function pinArticle(article){
 export function pinArticlePractitioner(id, article){
   const request = axios({
     method: 'post',
-    url: `http://localhost:3000/admin/patients/${id}/resources`,
+    url: `https://lunaportalserver.herokuapp.com/admin/patients/${id}/resources`,
     headers: {'Authorization': `Bearer ${localStorage.token}`},
     data: article
   }).then(result=>axios({
     method: 'get',
-    url: `http://localhost:3000/admin/patients/${id}`,
+    url: `https://lunaportalserver.herokuapp.com/admin/patients/${id}`,
     headers: {'Authorization': `Bearer ${localStorage.token}`},
   })).then(result=>{
     return result
   })
   return {
     type: "PIN_ARTICLE_PRACTITIONER",
+    payload: request
+  }
+}
+
+export function updateUser(id, user){
+  const request = axios({
+    method: 'put',
+    url: `https://lunaportalserver.herokuapp.com/admin/patients/${id}/`,
+    headers: {'Authorization': `Bearer ${localStorage.token}`},
+    data: user
+  }).then(result=>axios({
+    method: 'get',
+    url: `https://lunaportalserver.herokuapp.com/admin/patients/${id}`,
+    headers: {'Authorization': `Bearer ${localStorage.token}`},
+  })).then(result=>{
+      return result
+  })
+
+  return {
+    type: "UPDATE_USER",
+    payload: request
+  }
+}
+
+export function deleteNote(uId, nId){
+  const request = axios({
+    method: 'delete',
+    url: `https://lunaportalserver.herokuapp.com/admin/patients/${uId}/notes/${nId}`,
+    headers: {'Authorization': `Bearer ${localStorage.token}`}
+  }).then(result => axios({
+    method: 'get',
+    url: `https://lunaportalserver.herokuapp.com/admin/patients/${uId}`,
+    headers: {'Authorization': `Bearer ${localStorage.token}`},
+  })).then(result=>{
+    return result
+  })
+  return {
+    type: "DELETE_NOTE",
+    payload: request
+  }
+}
+
+export function removeResource(uId, rId){
+  const request = axios({
+    method: 'delete',
+    url: `https://lunaportalserver.herokuapp.com/admin/patients/${uId}/resources/${rId}`,
+    headers: {'Authorization': `Bearer ${localStorage.token}`}
+  }).then(result => axios({
+    method: 'get',
+    url: `https://lunaportalserver.herokuapp.com/admin/patients/${uId}`,
+    headers: {'Authorization': `Bearer ${localStorage.token}`},
+  })).then(result=>{
+    return result
+  })
+  return {
+    type: "REMOVE_RESOURCE",
     payload: request
   }
 }

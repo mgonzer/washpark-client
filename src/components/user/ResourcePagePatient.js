@@ -19,8 +19,9 @@ class ResourcePage extends Component {
 
   render(){
     return(
-      <div>
-        <h1 className="welcomeTitle">All Resources</h1>
+      <div className="dashboard">
+        <h1 className="welcomeTitleDashboard">All Resources</h1>
+        <div >
           <div className="gridResources">
             <Link to='/Resources/category/general'><div><img alt="icon" className="adminIcon" src={qifolder}></img><h4>General/Welcome</h4></div></Link>
             <Link to='/Resources/category/pregnancy'><div><img alt="icon" className="adminIcon" src={qifolder}></img><h4>Pregnancy</h4></div></Link>
@@ -40,7 +41,7 @@ class ResourcePage extends Component {
           <Link to='/Resources/category/diet'><div><img alt="icon" className="adminIcon" src={qifolder}></img><h4>Diet</h4></div></Link>
         </div>
 
-
+      </div>
       </div>
     )
   }

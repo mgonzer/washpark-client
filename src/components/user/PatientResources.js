@@ -8,9 +8,19 @@ class PatientResources extends Component {
   // }
 
   renderResources(){
-    let resources = this.props.data.user.user.resources
+    let resources = this.props.data.user.user.resources.sort((a,b)=>{
+      let A = a.title.toLowerCase(), B = b.title.toLowerCase()
+      if(A < B){
+        return -1
+      }
+      if(A > B){
+        return 1
+      }else{
+        return 0
+      }
+    })
     return resources.map(r=>
-    <Link key={r.id} to={`/resources/${r.id}`}><img className="pinResource" src={pin}/><li className="resourceList">{r.title}</li></Link>)
+    <Link key={r.id} to={`/resources/${r.id}`}><img className="pinResource" src={pin}/><li key={r.id} className="resourceList">{r.title}</li></Link>)
   }
 
   render(){

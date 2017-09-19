@@ -1,10 +1,17 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import woman from '../../assets/pregnancy.png'
 import resources from '../../assets/resource.png'
 import herbs from '../../assets/herbs.png'
 
 class AdminPage extends Component {
+  constructor(props){
+    super(props)
+  }
+
+  // componentDidMount(){
+  //   this.props.onGetHerbs()
+  // }
   render(){
     return(
       <div >
@@ -19,7 +26,7 @@ class AdminPage extends Component {
   }
 }
 
-export default AdminPage
+export default withRouter(AdminPage)
 
 
 // <PatientList  data={this.props.data}/>

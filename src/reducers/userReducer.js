@@ -58,6 +58,21 @@ const userReducer = (
       state.user = action.payload
       return state
     }
+    case "UPDATE_USER": {
+      const state = {...initialState}
+      state.user = action.payload
+      return state
+    }
+    case "DELETE_NOTE":{
+      const state = {...initialState}
+      state.user = action.payload
+      return state
+    }
+    case "REMOVE_RESOURCE":{
+      const state = {...initialState}
+      state.user = action.payload
+      return state
+    }
 
     default:
       return initialState

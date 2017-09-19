@@ -20,10 +20,12 @@ class PatientPage extends Component {
       <div>
         <h1 className="welcomeTitle">Patients</h1>
           <ul className="patientList">
-            { this.props.data.user.users[0] && this.props.data.user.users.map(patient=>
-            <Link className="individualPatient" to={`/Adminpage/patients/${patient.id}`}><li>{patient.id}: {patient.first_name}</li></Link>)}
+            { this.props.data.user.users[0] && this.props.data.user.users.sort((a,b)=> a.id - b.id).map(patient=>
+            <Link className="individualPatient" to={`/Adminpage/patients/${patient.id}`}>
+              <li key={patient.id} id="patientFirstName">{patient.id}: {patient.first_name}</li>
+            </Link>)}
           </ul>
-          
+
       </div>
     )
   }

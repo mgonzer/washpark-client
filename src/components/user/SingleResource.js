@@ -26,14 +26,14 @@ class SingleResource extends Component{
     return(
       <div className="resourcePage">
         <div className="tooltip"><img alt="icon" onClick={this.addArticle} className="pinIcon"  src={pin} />
-          <span className="tooltiptext">Click to Pin Article</span>        
+          <span className="tooltiptext">Click to Pin Article</span>
         </div>
-        <h1 className="welcomeTitle">{resource && resource.title}</h1>
+        <h1 className="singleResourceTitle">{resource && resource.title}</h1>
         <div className="resourceStyle">
   </div>
     <div className="embeded">
 
-          <object  data={ resource && resource.article} width="800px" height="700px" type='application/pdf' />
+          <object className="resource"  data={ resource && resource.article} width="800px" height="700px" type='application/pdf' />
 
         </div>
       </div>

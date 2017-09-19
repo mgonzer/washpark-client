@@ -18,14 +18,16 @@ import PatientResources from './user/PatientResources';
 import ResourceListPage from './admin/ResourceListPage';
 import Schedule from './user/Schedule';
 import Kindara from './user/Kindara'
-import { login, signup, adminLogin, getPatients, getOnePatient, loadPatientData, addNote, pinArticle, pinArticlePractitioner } from '../actions/userActions';
-import { getHerbs } from '../actions/herbAction';
+import { login, signup, adminLogin, getPatients, getOnePatient,
+  loadPatientData, addNote, pinArticle, pinArticlePractitioner,
+  updateUser, deleteNote, removeResource } from '../actions/userActions';
+import { getHerbs, updateHerbs, addHerb } from '../actions/herbAction';
 import { getResources, getOneResource, getSomeResources, addResource } from '../actions/resourceAction';
 
 class Main extends Component {
 
 componentDidMount(){
-  console.log(this.props);
+
 }
 
   render(){
@@ -76,6 +78,9 @@ const mapDispatchToProps = (dispatch) => {
     onGetHerbs: () => {
       dispatch(getHerbs());
     },
+    onUpdateHerbs: (id, quantity) => {
+      dispatch(updateHerbs(id, quantity))
+    },
     onGetResources: ()=> {
       dispatch(getResources());
     },
@@ -105,6 +110,18 @@ const mapDispatchToProps = (dispatch) => {
     },
     onPinArticlePractitioner: (id, article) => {
       dispatch(pinArticlePractitioner(id, article))
+    },
+    onUpdateUser: (id, user) => {
+      dispatch(updateUser(id, user))
+    },
+    onDeleteNote: (uId, nId) => {
+      dispatch(deleteNote(uId, nId))
+    },
+    onRemoveResource: (uId, rId) => {
+      dispatch(removeResource(uId, rId))
+    },
+    onAddHerb: (herb)=>{
+      dispatch(addHerb(herb))
     }
   }
 }

@@ -105,12 +105,18 @@ main {
 
 .registration {
   width: 100%;
-  padding: 12px 20px;
+  padding: 8px 10px;
   margin: 8px 0;
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+}
+
+.formLabel {
+  font-size: 1em;
+  font-weight: bold;
+  font-family: formFont;
 }
 
 .submitButton {
@@ -238,8 +244,12 @@ main {
   width: 40vw;
   border-style: solid;
   border-width: 30px;
-  border-color: #c5d5cb;
+  border-color: #9fa8a3;
   border-radius: 5%;
+}
+
+#patientFirstName {
+  font-size: 2em;
 }
 
 li {
@@ -272,16 +282,21 @@ li {
   border-width: 1px;
   border-color: #A9A9A9;
 }
-
+.block{
+  display: block;
+}
 .noteListAdmin {
   margin-top: -1%;
   list-style: none;
   height: 100px;
   overflow: scroll;
-  border-bottom: solid 1px;
+  /*border-bottom: solid 1px;*/
   margin-right: 5%;
   padding-top: 4%;
+  display: inline-block;
+  width: 80%;
 }
+
 
 .noteList {
   height: 80%;
@@ -295,23 +310,77 @@ li {
   margin: 2px 10%;
 }
 
+.noteInput:focus {
+  outline: none;
+}
+
+#diagnosisEditButton{
+  display: block;
+  border-radius: 25px;
+  text-align: center;
+  background-color: #9fa8a3;
+  border-style: none;
+  color: white;
+  padding: 5px;
+  cursor: pointer;
+  font-family: formFont;
+  font-size: .8em;
+  /*float: right;*/
+  width: 20%;
+  margin: 5px auto;
+}
+
 #noteSubmitButton {
   width: 25%;
   background-color: #9fa8a3;
   color: white;
   padding: 5px;
-  margin: 0 5%;
+  margin: 5px auto;
   border: none;
   border-radius: 30px;
   cursor: pointer;
   font-family: loginFont;
   font-size: 1.5em;
   display: block;
-  float: right;
 }
 
 #addNote {
   margin-left: 5%;
+}
+
+#diagnosis {
+  width: 80%;
+  display: block;
+  margin: 0 auto;
+}
+
+#treatment {
+  width: 80%;
+  display: block;
+  margin: 0 auto;
+}
+
+.noteLi{
+  display: grid;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.dateAdded {
+  padding-right: 0;
+  font-size: .8em;
+  font-weight: normal;
+}
+
+.deleteNoteButton {
+  width: 50%;
+}
+
+
+.dateAddedUser {
+  padding-right: 5px;
+  display: block;
+  text-decoration: underline;
 }
 
 
@@ -321,9 +390,45 @@ li {
   font-size: 1.5em;
 }
 
+.resourceDropdown {
+  margin: 2% 5% 0 10%;
+  height: 25px;
+  font-size: 15px;
+  font-family: formFont;
+}
+
+.resourceDropdown:focus {
+  outline: none;
+}
+
 .resourceList:hover {
   color: #9fa8a3;
   cursor: pointer;
+}
+
+.pinnedResourceList{
+  height: 50%;
+  overflow: scroll;
+}
+
+.pinResourceButton {
+  background-color: #9fa8a3;
+  color: white;
+  padding: 10px;
+  margin: 8px auto 0 5%;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-family: loginFont;
+  font-size: 2em;
+  list-style: none;
+  /*display: block;*/
+}
+
+#pinnedResourceItem {
+  list-style: none;
+  font-size: 1.2em;
+  font-weight: bold;
 }
 
 
@@ -406,20 +511,25 @@ hr {
 .diagnosisP {
   text-align: center;
   padding: 0 4%;
+  font-weight: bold;
+  font-size: 1.2em;
 }
 
 .noteList {
   margin-left: 5%;
   font-family: formFont;
   overflow: scroll;
+  font-weight: bold;
+  font-size: 1.2em;
 }
 
 .addResourceForm {
   border-radius: 5px;
   background-color: #c5d5cb;
   padding: 20px;
-  width: 40%;
+  width: 30%;
   text-align: left;
+  margin-left: 20px;
 }
 
 .addResourceButton {
@@ -432,7 +542,7 @@ hr {
   border-radius: 30px;
   cursor: pointer;
   font-family: loginFont;
-  font-size: 2em;
+  font-size: 1.2em;
 }
 
 .toggleAddResourceButton {
@@ -440,12 +550,16 @@ hr {
   background-color: #9fa8a3;
   color: white;
   padding: 10px;
-  margin: 8px 0;
+  margin: 8px 20px;
   border: none;
   border-radius: 30px;
   cursor: pointer;
   font-family: loginFont;
-  font-size: 2em;
+  font-size: 1.5em;
+}
+
+.toggleAddResourceButton:focus {
+  outline: none;
 }
 
 .resourceListFiltered {
@@ -512,6 +626,7 @@ hr {
   display: inline-block;
   height: 20px;
   padding-top: 10px;
+  padding-right: 5px;
 }
 
 .welcomePinBoard {
@@ -521,4 +636,59 @@ hr {
   font-weight: normal;
   margin: 10px 0 20px 0;
   padding-bottom: 0px;
+}
+
+.singleResourceTitle {
+  text-align: center;
+  font-family: loginFont;
+  font-size: 5em;
+  font-weight: normal;
+  padding-bottom: 25px;
+}
+
+/*.resource {
+  border-style: solid;
+  border-width: 20px;
+  border-color: #9fa8a3;
+}*/
+
+#deleteButton {
+
+}
+
+.smallImage{
+  height: 15px;
+  padding-right: 25px;
+  cursor: pointer;
+}
+
+.quantitySpan {
+  float: right;
+  margin-right: 10%;
+}
+
+.herbInput {
+  width: 20px;
+  margin: 0 5px 0 5px;
+}
+
+#herbList{
+  list-style: none;
+}
+
+#newHerbForm {
+  text-align: center;
+  margin-bottom: 2%;
+  /*background-color: #c5d5cb;*/
+  /*height: 3em;
+  width: 30%;
+  margin: 5px auto;
+  padding:25px 0 0 0;
+  border-radius: 10px;*/
+}
+
+#newHerbInput {
+  height: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
 }

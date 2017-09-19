@@ -5,11 +5,25 @@ class HerbPage extends Component {
   constructor(props){
     super(props)
     this.renderHerbList = this.renderHerbList.bind(this)
+    this.updateHerbs = this.updateHerbs.bind(this)
+    this.handleInput = this.handleInput.bind(this)
+    this.addNewHerb = this.addNewHerb.bind(this)
+    this.state ={
+      newHerb: ''
+    }
   }
 
 componentWillMount(){
   this.props.onGetHerbs()
+}
 
+componentDidMount(){
+  let obj = {}
+  this.props.data.herbs.herbs.map((item,i)=>{
+    obj[item.name] = item
+  })
+  this.setState(obj)
+  console.log(this.props.data.herbs.herbs);
 }
 
 renderHerbList(){
@@ -24,20 +38,56 @@ renderHerbList(){
       return 0
     }
   })
-  console.log(herbs);
-  return herbs.map(herbs =>
-    <li>{herbs.name} - Quantity:{herbs.quantity}</li>
-  )
 
+
+  return herbs.map((herbals,i)=>
+    <li id="herbList">{herbals.name}
+       <span className="quantitySpan">Quantity:{herbals.quantity}
+       <input onChange={this.handleInput}
+        key={herbals.id}
+         name={herbals.name}
+         className="herbInput"
+         value={this.state[herbals.name]}></input>
+       <button name={herbals.name} value={this.state[herbals.name]} id={herbals.id} onClick={this.updateHerbs}>update</button></span>
+    </li>
+  )
 }
+
+handleInput(event){
+  this.setState({
+    [event.target.name]: event.target.value
+  })
+}
+
+updateHerbs(event){
+  event.preventDefault()
+  this.props.onUpdateHerbs(event.target.id, {quantity: event.target.value})
+  this.setState({
+    [event.target.name] : ''
+  })
+}
+
+addNewHerb(event){
+  event.preventDefault()
+  this.props.onAddHerb({name: this.state.newHerb})
+}
+
   render(){
 
     return(
       <div>
-        <h1 className="welcomeTitle">Herbs</h1>
-          <ul className="patientList">
+        <h1 className="welcomeTitle">Inventory</h1>
+          <form onSubmit={this.addNewHerb} id="newHerbForm">Add New Herb:
+            <input id="newHerbInput" onChange={this.handleInput} name="newHerb" value={this.state.newHerb}></input>
+            <button type="submit">Submit</button>
+          </form>
+        <div className="patientList">
+          <ul ><u>Herbs</u>
             { this.renderHerbList() }
           </ul>
+
+        </div>
+
 
       </div>
     )

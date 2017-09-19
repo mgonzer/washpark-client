@@ -3,7 +3,7 @@ import axios from 'axios'
 export function getResources(){
   const request = axios({
     method: 'get',
-    url: `http://localhost:3000/resources`,
+    url: `https://lunaportalserver.herokuapp.com/resources`,
     headers: {'Authorization': `Bearer ${localStorage.token}`}
   }).then(result=>{
     return result
@@ -15,7 +15,7 @@ export function getResources(){
 }
 
 export function getOneResource(id){
-  const request = axios.get(`http://localhost:3000/resources/${id}`).then((resource)=>{
+  const request = axios.get(`https://lunaportalserver.herokuapp.com/resources/${id}`).then((resource)=>{
     return resource
   })
   return {
@@ -25,7 +25,7 @@ export function getOneResource(id){
 }
 
 export function getSomeResources(category){
-  const request = axios.get(`http://localhost:3000/resources/category/${category}`)
+  const request = axios.get(`https://lunaportalserver.herokuapp.com/resources/category/${category}`)
                     .then(resources=>{
                       return resources
                     })
@@ -38,7 +38,7 @@ export function getSomeResources(category){
 export function addResource(resource){
   const request = axios({
     method: 'post',
-    url: `http://localhost:3000/resources`,
+    url: `https://lunaportalserver.herokuapp.com/resources`,
     headers: {'Authorization': `Bearer ${localStorage.token}`},
     data: resource
   }).then(result=> {

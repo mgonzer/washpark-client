@@ -11,6 +11,13 @@ class TreatmentPage extends Component {
     this.props.onLoadPatientData()
   }
 
+  renderNotes(){
+    let user = this.props.data.user
+    return user.user.notes && user.user.notes.reverse().map(n=>
+      <li key={n.id} ><span className="dateAddedUser"><Moment format="MM/DD/YYYY">{n.created_at}</Moment> </span> {n.body}</li>
+    )
+  }
+
   render(){
     let {user} = this.props.data.user
     return(
@@ -28,9 +35,7 @@ class TreatmentPage extends Component {
           <div className="diagnosisTreatment">
             <h4 className="diagnosisHeading">Notes:</h4>
             <ul className="noteList">
-              { user && user.notes.map(n=>
-                <li key={n.id} ><Moment format="MM/DD/YYYY">{n.created_at}</Moment> : {n.body}</li>
-              ) }
+              { this.renderNotes() }
             </ul>
           </div>
 

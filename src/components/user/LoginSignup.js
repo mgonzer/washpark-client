@@ -36,8 +36,15 @@ class LoginSignup extends Component {
         {username,
           password}
         )
-      
     this.props.history.push('/Dashboard')
+  }
+
+  componentDidUpdate(prevProps, prevState){
+    // if(this.props.data.user.response.data.error.message == 'Un-Authorized'){
+    //   console.log("NO,NO");
+    // }else{
+    // this.props.history.push('/Dashboard')
+    // }
   }
 
   switchComponents (){

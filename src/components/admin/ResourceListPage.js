@@ -28,7 +28,9 @@ class ResourceListPage extends Component {
 
   renderResources(){
     return this.props.data.resources.resources.map(resource =>
-      <Link to={`/Adminpage/resources/${resource.id}`}><li className="resourceList">{resource.title}</li></Link>
+      <Link to={`/Adminpage/resources/${resource.id}`}>
+        <li key={`resource:${resource.id}`} className="resourceList">{resource.title}</li>
+      </Link>
     )
   }
 
@@ -66,11 +68,11 @@ class ResourceListPage extends Component {
         {this.state.showform &&
           <div>
             <form className="addResourceForm" onSubmit={this.handleSubmit}>
-              <label>Title</label>
+              <label className="formLabel">Title</label>
               <input onChange={this.handleInput} className="registration" id="title" required></input>
-              <label>Type</label>
+              <label className="formLabel">Type</label>
               <input onChange={this.handleInput} className="registration" id="type" required></input>
-              <label>Article URL</label>
+              <label className="formLabel">Article URL</label>
               <input onChange={this.handleInput} className="registration" id="article" required></input>
               <button className="addResourceButton" type="submit">Add Resource</button>
             </form>
